@@ -1,89 +1,74 @@
 <template>
-  <v-row justify="center" align="center">
-    <v-col cols="12" sm="8" md="6">
-      <div class="text-center">
-        <logo />
-        <vuetify-logo />
-      </div>
-      <v-card>
-        <v-card-title class="headline">
-          Welcome to the Vuetify + Nuxt.js template
-        </v-card-title>
-        <v-card-text>
-          <p>Vuetify is a progressive Material Design component framework for Vue.js. It was designed to empower developers to create amazing applications.</p>
-          <p>
-            For more information on Vuetify, check out the <a
-              href="https://vuetifyjs.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              documentation
-            </a>.
-          </p>
-          <p>
-            If you have questions, please join the official <a
-              href="https://chat.vuetifyjs.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="chat"
-            >
-              discord
-            </a>.
-          </p>
-          <p>
-            Find a bug? Report it on the github <a
-              href="https://github.com/vuetifyjs/vuetify/issues"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="contribute"
-            >
-              issue board
-            </a>.
-          </p>
-          <p>Thank you for developing with Vuetify and I look forward to bringing more exciting features in the future.</p>
-          <div class="text-xs-right">
-            <em><small>&mdash; John Leider</small></em>
-          </div>
-          <hr class="my-3">
-          <a
-            href="https://nuxtjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt Documentation
-          </a>
-          <br>
-          <a
-            href="https://github.com/nuxt/nuxt.js"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt GitHub
-          </a>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn
-            color="primary"
-            nuxt
-            to="/inspire"
-          >
-            Continue
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-col>
-  </v-row>
+  <div v-scroll="onScroll">
+    <v-sheet
+      id="scrolling-techniques-7"
+      class="overflow-y-auto"
+      max-height="600"
+    >
+      <v-container style="height: 1500px;">
+      </v-container>
+    </v-sheet>
+    <app-navbar
+      :drawer="drawer"
+      :active="active"
+      @reset-drawer="drawer = $event"
+      @reset-active="active = $event"
+      :app-name="appName"
+      :folder-image="folderImage"
+    ></app-navbar>
+    <app-navigation-drawer
+      :drawer="drawer"
+      @reset-drawer="drawer = $event"
+    ></app-navigation-drawer>
+  </div>
 </template>
 
 <script>
 import Logo from '~/components/Logo.vue'
 import VuetifyLogo from '~/components/VuetifyLogo.vue'
+import AppNavbar from '~/components/AppNavbar.vue'
+import AppNavigationDrawer from '~/components/AppNavigationDrawer.vue'
 
 export default {
   components: {
     Logo,
-    VuetifyLogo
+    VuetifyLogo,
+    AppNavbar,
+    AppNavigationDrawer
   },
+  data () {
+    return {
+      appName: 'Portfolio of Carlos Henrique Reis',
+      folderImage: 'https://carlos-henreis.github.io/files/images/',
+      folderFile: 'https://carlos-henreis.github.io/files/',
+      drawer: false,
+      active: 0,
+      list: ['aboutMe', 'academic', 'professionalExperience', 'interests', 'projects', 'hobbies'],
+      currentOffset: 0
+    }
+  },
+  watch: {
+    currentOffset: function (val) {
+      if (val < this.getItemOffset(this.list[0]) - 65) {
+        this.active = 0
+        return
+      }
+      let that = this
+      let index = this.list.findIndex(item => {
+        return  that.getItemOffset(item) - 65 > val
+      })
+      const lastIndex = this.list.length
+
+      this.active = index > -1 ? index-1 : lastIndex-1
+    }
+  },
+  methods: {
+    getItemOffset (item) {
+      return document.getElementById(item).offsetTop
+    },
+    onScroll () {
+      this.currentOffset = window.pageYOffset
+    }
+  }
 }
 </script>
