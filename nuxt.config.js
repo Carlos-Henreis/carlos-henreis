@@ -10,8 +10,8 @@ export default {
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    titleTemplate: '%s - carlos-henreis',
-    title: 'carlos-henreis',
+    titleTemplate: 'Portfolio of Carlos Henrique Reis',
+    title: 'Portfolio of Carlos Henrique Reis',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -19,7 +19,8 @@ export default {
       { hid: 'og:title',  property: 'og:title', content: 'Portfolio of Carlos Henrique Reis'},
       { hid: 'og:site_name',  property: 'og:site_name', content: 'Portfolio of Carlos Henrique Reis'},
       { hid: 'og:url',  property: 'og:url', content: process.env.BASE_URL},
-      { hid: 'og:image', property: 'og:image', content: process.env.BASE_URL }
+      { hid: 'og:image',  property: 'og:image', content: process.env.BASE_URL + '/images/profile.png'},
+      { hid: 'og:description', property: 'og:description', content: 'Hi, I\'m Carlos. I\'m currently working with web development and studying various things related to computing such as Artificial Intelligence and Optimization of Hyperparameters. Below is a resumé about me.' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
