@@ -7,7 +7,6 @@
   >
     <v-list dense>
       <v-list-item-group
-        v-model="selectedItem"
         color="primary"
       >
         

@@ -1,13 +1,5 @@
 <template>
   <div v-scroll="onScroll">
-    <v-sheet
-      id="scrolling-techniques-7"
-      class="overflow-y-auto"
-      max-height="600"
-    >
-      <v-container style="height: 1500px;">
-      </v-container>
-    </v-sheet>
     <app-navbar
       :drawer="drawer"
       :active="active"
@@ -20,6 +12,19 @@
       :drawer="drawer"
       @reset-drawer="drawer = $event"
     ></app-navigation-drawer>
+    <app-header
+      :folder-image="folderImage"
+    ></app-header>
+    <app-about-me
+      :folder-file="folderFile"
+      :active="active"
+    ></app-about-me>
+    <app-academic
+      :active="active"
+    ></app-academic>
+    <app-professional-experience
+      :active="active"
+    ></app-professional-experience>
   </div>
 </template>
 
@@ -28,13 +33,21 @@ import Logo from '~/components/Logo.vue'
 import VuetifyLogo from '~/components/VuetifyLogo.vue'
 import AppNavbar from '~/components/AppNavbar.vue'
 import AppNavigationDrawer from '~/components/AppNavigationDrawer.vue'
+import AppHeader from '~/components/AppHeader.vue'
+import AppAboutMe from '~/components/AppAboutMe.vue'
+import AppAcademic from '~/components/AppAcademic.vue'
+import AppProfessionalExperience from '~/components/AppProfessionalExperience.vue'
 
 export default {
   components: {
     Logo,
     VuetifyLogo,
     AppNavbar,
-    AppNavigationDrawer
+    AppNavigationDrawer,
+    AppHeader,
+    AppAboutMe,
+    AppAcademic,
+    AppProfessionalExperience
   },
   data () {
     return {
@@ -43,7 +56,7 @@ export default {
       folderFile: 'https://carlos-henreis.github.io/files/',
       drawer: false,
       active: 0,
-      list: ['aboutMe', 'academic', 'professionalExperience', 'interests', 'projects', 'hobbies'],
+      list: ['aboutMe', 'academic', 'professionalExperience'],
       currentOffset: 0
     }
   },
@@ -64,6 +77,7 @@ export default {
   },
   methods: {
     getItemOffset (item) {
+      console.log(item);
       return document.getElementById(item).offsetTop
     },
     onScroll () {

@@ -1,9 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <v-container>
-        <nuxt />
-      </v-container>
+      <nuxt />
     </v-main>
     <app-fab />
   </v-app>
@@ -22,3 +20,13 @@ export default {
   }
 }
 </script>
+<style>
+/* Hide side scrollbar if content does not need it */
+html {
+  overflow-y: auto;
+}
+.application {
+  font-family: 'Quicksand', sans-serif;
+}
+</style>
+

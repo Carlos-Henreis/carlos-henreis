@@ -5,7 +5,7 @@
     tabs 
     dark 
     dense 
-    color="grey darken-4"
+    background-color="grey darken-4"
     elevation=10
   >
     <v-app-bar-nav-icon class="hidden-lg-and-up" @click="drawerFlag = !drawerFlag"></v-app-bar-nav-icon>
@@ -22,21 +22,20 @@
         right
         slot="activators"
         v-model="activeFlag"
-        dark
-        color="grey darken-4"
+        background-color="grey darken-4"
       >
         <v-tabs-slider color="primary"></v-tabs-slider>
-        <v-tab @click="$vuetify.goTo('#aboutMe', { offset: -65 })">About Me</v-tab>
+        <v-tab @click="$vuetify.goTo('#aboutMe', { offset: 50  })">About Me</v-tab>
         <v-divider light vertical></v-divider>
-        <v-tab @click="$vuetify.goTo('#academic', { offset: -65 })">Academic</v-tab>
+        <v-tab @click="$vuetify.goTo('#academic', { offset: 50 })">Academic</v-tab>
         <v-divider light vertical></v-divider>
-        <v-tab @click="$vuetify.goTo('#professionalExperience', { offset: -65 })">Professional Experience</v-tab>
+        <v-tab @click="$vuetify.goTo('#professionalExperience', { offset: 50 })">Professional Experience</v-tab>
         <v-divider light vertical></v-divider>
-        <v-tab @click="$vuetify.goTo('#interests', { offset: -65 })">Interests & Skills</v-tab>
+        <v-tab @click="$vuetify.goTo('#interests', { offset: 50 })">Interests & Skills</v-tab>
         <v-divider light vertical></v-divider>
-        <v-tab @click="$vuetify.goTo('#projects', { offset: -65 })">My Projects</v-tab>
+        <v-tab @click="$vuetify.goTo('#projects', { offset: 50 })">My Projects</v-tab>
         <v-divider light vertical></v-divider>
-        <v-tab @click="$vuetify.goTo('#hobbies', { offset: -65 })">Hobbies</v-tab>
+        <v-tab @click="$vuetify.goTo('#hobbies', { offset: 50 })">Hobbies</v-tab>
         <v-divider light vertical></v-divider>
       </v-tabs>
     </v-toolbar-items>
