@@ -10,7 +10,7 @@
           <v-flex xs12 d-flex>
             <v-card elevation-4 color="primary" dark class="rounded-card">
               <v-card-text class="text-center">
-                <span class="title" id="title">
+                <span class="title kmd" id="title">
                   In my moments off I like to practice Mountain Running, I try to cross roads, paths and trails in the mountains of the South of Minas Gerais, Serra Mantiqueira and Serra do Mar.
                 </span>
               </v-card-text>
@@ -19,7 +19,7 @@
           <v-flex xs12 d-flex>
             <v-card elevation-4 color="primary" dark class="rounded-card">
               <v-card-text class="text-center">
-                <span class="title" id="title">
+                <span class="title kmd" id="title">
                   Origami, people ask me how I have the patience to make them, I say: I do not know, mainly because I'm an impatient person, but I love making my origamis. Part of them I put on my Instagram (my posts can be seen below):
                 </span>
               </v-card-text>
@@ -219,7 +219,7 @@ data () {
 }
 </script>
 <style>
-.title {
+.kmd {
   /* unvisited link */
   color: white !important;
 }
