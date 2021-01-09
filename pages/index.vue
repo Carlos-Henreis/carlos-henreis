@@ -25,6 +25,18 @@
     <app-professional-experience
       :active="active"
     ></app-professional-experience>
+    <app-interests
+      :active="active"
+    ></app-interests>
+    <app-my-projects
+      :folder-image="folderImage"
+      :folder-file="folderFile"
+      :active="active"
+    ></app-my-projects>
+    <app-hobbies
+      :active="active"
+    ></app-hobbies>
+    <app-footer :folder-image="folderImage"></app-footer>
   </div>
 </template>
 
@@ -37,17 +49,24 @@ import AppHeader from '~/components/AppHeader.vue'
 import AppAboutMe from '~/components/AppAboutMe.vue'
 import AppAcademic from '~/components/AppAcademic.vue'
 import AppProfessionalExperience from '~/components/AppProfessionalExperience.vue'
+import AppInterests from '~/components/AppInterests.vue'
+import AppMyProjects from '~/components/AppMyProjects.vue'
+import AppHobbies from '~/components/AppHobbies.vue'
+import AppFooter from '~/components/AppFooter.vue'
+
 
 export default {
   components: {
-    Logo,
-    VuetifyLogo,
     AppNavbar,
     AppNavigationDrawer,
     AppHeader,
     AppAboutMe,
     AppAcademic,
-    AppProfessionalExperience
+    AppProfessionalExperience,
+    AppInterests,
+    AppMyProjects,
+    AppHobbies,
+    AppFooter
   },
   data () {
     return {
@@ -56,7 +75,7 @@ export default {
       folderFile: 'https://carlos-henreis.github.io/files/',
       drawer: false,
       active: 0,
-      list: ['aboutMe', 'academic', 'professionalExperience'],
+      list: ['aboutMe', 'academic', 'professionalExperience', 'interests', 'projects', 'hobbies'],
       currentOffset: 0
     }
   },
@@ -77,12 +96,14 @@ export default {
   },
   methods: {
     getItemOffset (item) {
-      console.log(item);
       return document.getElementById(item).offsetTop
     },
     onScroll () {
       this.currentOffset = window.pageYOffset
     }
+  },
+  mounted ()  {
+    console.log("%cIn Love!", "color: red; font-family: sans-serif; font-size: 4.5em; font-weight: bolder; text-shadow: #000 1px 1px;");
   }
 }
 </script>

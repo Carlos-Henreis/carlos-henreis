@@ -12,7 +12,7 @@ import AppFab from '~/components/AppFab.vue'
 
 export default {
   components: {
-    AppFab
+    AppFab,
   },
   data () {
     return {

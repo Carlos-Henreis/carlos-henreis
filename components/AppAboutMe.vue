@@ -46,10 +46,10 @@ export default {
   },
   computed: {
     resumeFileEn () {
-      return process.env.BASE_URL + '/curriculum-vitae-en-Carlos-Reis.pdf';
+      return '/curriculum-vitae-en-Carlos-Reis.pdf';
     },
     resumeFileBr () {
-      return process.env.BASE_URL + '/curriculum vitae-br-Carlos-Reis.pdf';
+      return '/curriculum vitae-br-Carlos-Reis.pdf';
     }
   },
   methods: {

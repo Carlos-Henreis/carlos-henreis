@@ -22,7 +22,7 @@
         color="primary"
       >
         <v-list-item
-          @click="$vuetify.goTo('#aboutMe', { offset: -55 }); drawerFlag = !drawerFlag"
+          @click="$vuetify.goTo('#aboutMe', { offset: +50 }); drawerFlag = !drawerFlag"
         >
           <v-list-item-icon>
             <v-icon> mdi-information</v-icon>
@@ -33,7 +33,7 @@
         </v-list-item>
         <v-divider></v-divider>
         <v-list-item
-          @click="$vuetify.goTo('#academic', { offset: -55 }); drawerFlag = !drawerFlag"
+          @click="$vuetify.goTo('#academic', { offset: +50 }); drawerFlag = !drawerFlag"
         >
           <v-list-item-icon>
             <v-icon>mdi-school</v-icon>
@@ -44,18 +44,18 @@
         </v-list-item>
         <v-divider></v-divider>
         <v-list-item
-          @click="$vuetify.goTo('#professionalExperience', { offset: -55 }); drawerFlag = !drawerFlag"
+          @click="$vuetify.goTo('#professionalExperience', { offset: +50 }); drawerFlag = !drawerFlag"
         >
           <v-list-item-icon>
             <v-icon> mdi-laptop</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title>rofessional Experience</v-list-item-title>
+            <v-list-item-title>Professional Experience</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
         <v-divider></v-divider>
         <v-list-item
-          @click="$vuetify.goTo('#interests', { offset: -55 }); drawerFlag = !drawerFlag"
+          @click="$vuetify.goTo('#interests', { offset: +50 }); drawerFlag = !drawerFlag"
         >
           <v-list-item-icon>
             <v-icon> mdi-wrench</v-icon>
@@ -66,7 +66,7 @@
         </v-list-item>
         <v-divider></v-divider>
         <v-list-item
-          @click="$vuetify.goTo('#projects', { offset: -55 }); drawerFlag = !drawerFlag"
+          @click="$vuetify.goTo('#projects', { offset: +50 }); drawerFlag = !drawerFlag"
         >
           <v-list-item-icon>
             <v-icon> mdi-folder-star</v-icon>
@@ -77,7 +77,7 @@
         </v-list-item>
         <v-divider></v-divider>
         <v-list-item
-          @click="$vuetify.goTo('#hobbies', { offset: -55 }); drawerFlag = !drawerFlag"
+          @click="$vuetify.goTo('#hobbies', { offset: +50 }); drawerFlag = !drawerFlag"
         >
           <v-list-item-icon>
             <v-icon> mdi-face</v-icon>

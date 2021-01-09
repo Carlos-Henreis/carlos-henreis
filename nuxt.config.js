@@ -27,6 +27,11 @@ export default {
     ]
   },
 
+  script: [
+    { src: '/d3.js' },
+    // { src: '/d3.timeline.js'}
+  ],
+
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
   ],
@@ -46,8 +51,11 @@ export default {
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: [
-  ],
+  modules: ['@nuxtjs/axios'],
+
+  axios: {
+    // proxy: true
+  },
 
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
   vuetify: {
