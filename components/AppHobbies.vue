@@ -55,14 +55,14 @@
                                 <div>
                                   <v-container grid-list-md text-xs-center>
                                     <v-layout row wrap>
-                                      <v-flex md3>
-                                        <div class="subtitle-1">{{count_pub}} posts</div>
+                                      <v-flex md4>
+                                        <div class="subtitle-1">{{count_pub}} <br>posts</div>
                                       </v-flex>
-                                      <v-flex md3>
-                                        <div class="subtitle-1">{{count_follow}} followers</div>
+                                      <v-flex md4>
+                                        <div class="subtitle-1">{{count_follow}} <br> followers</div>
                                       </v-flex>
-                                      <v-flex md3>
-                                        <div class="subtitle-1">{{count_followed_by}} followers</div>
+                                      <v-flex md4>
+                                        <div class="subtitle-1">{{count_followed_by}} <br> followers</div>
                                       </v-flex>
                                     </v-layout>
                                   </v-container>
@@ -81,7 +81,7 @@
                   >
                     <v-card>
                       <v-img
-                        aspect-ratio="2.75"
+                        aspect-ratio="0.75"
                         :src="card.node.thumbnail_resources[1].src"
                         height="200px"
                       >
@@ -101,7 +101,35 @@
 
                       <v-card-actions>
                         <v-spacer></v-spacer>
-                        
+                        <v-tooltip bottom>
+      <template v-slot:activator="{ on, attrs }">
+        <v-icon
+          color="primary"
+          dark
+          v-bind="attrs"
+          v-on="on"
+        >
+          mdi-home
+        </v-icon>
+      </template>
+      <span slot="badge">{{card.node.edge_media_to_caption.edges[0].node.text.split('#').length-2 < 0 ? 0 : card.node.edge_media_to_caption.edges[0].node.text.split('#').length-2}}</span>
+    </v-tooltip>
+                        <v-tooltip bottom>
+                            <v-badge
+                              left class="pr-3"
+                              overlap
+                              slot="activator"
+                            >
+                              <span slot="badge">{{card.node.edge_media_to_caption.edges[0].node.text.split('#').length-2 < 0 ? 0 : card.node.edge_media_to_caption.edges[0].node.text.split('#').length-2}}</span>
+                              <v-icon
+                                large
+                                color="green lighten-1"
+                              >
+                                mdi-pound-box-outline
+                              </v-icon>
+                            </v-badge>
+                            <span v-for="tag in card.node.edge_media_to_caption.edges[0].node.text.split('#').slice(1, -1)">#{{tag}}</br></span>
+                          </v-tooltip>
                         <v-badge left class="pr-3" overlap>
                           <span slot="badge">{{card.node.edge_media_preview_like.count}}</span>
                           <v-icon
@@ -120,7 +148,7 @@
                             mdi-message
                           </v-icon>
                         </v-badge>
-                        <v-btn color="primary" dark :href="'https://www.instagram.com/p/'+card.node.shortcode+'/'" target="_blank">See on instagram</v-btn>
+                        <v-btn color="primary" outlined dark :href="'https://www.instagram.com/p/'+card.node.shortcode+'/'" target="_blank">See on instagram</v-btn>
                       </v-card-actions>
                     </v-card>
                   </v-flex>
@@ -193,8 +221,9 @@ data () {
     getMorePosts () {
       this.loading = true
       this.$axios.$get('https://instagram.com/graphql/query/?query_id=17888483320059182&id='+this.userId+'&first=12&after='+this.next_url).then(response => {
-        this.grams = this.grams.concat(response.user.edge_owner_to_timeline_media.edges)
-        this.next_url = response.user.edge_owner_to_timeline_media.page_info.end_cursor
+        console.dir(response)
+        this.grams = this.grams.concat(response.data.user.edge_owner_to_timeline_media.edges)
+        this.next_url = response.data.user.edge_owner_to_timeline_media.page_info.end_cursor
         this.loading = false
       })
     },

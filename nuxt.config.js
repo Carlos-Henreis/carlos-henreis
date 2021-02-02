@@ -29,7 +29,7 @@ export default {
 
   script: [
     { src: '/d3.js' },
-    // { src: '/d3.timeline.js'}
+    { src: '/tesseract.js.js'}
   ],
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
@@ -78,5 +78,11 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
+    extend (config, ctx) {
+      config.node = {
+          fs: "empty"
+      };
+    }
   },
 }
+

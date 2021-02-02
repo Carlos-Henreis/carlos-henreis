@@ -17,3 +17,40 @@
     </v-col>
   </v-row>
 </template>
+<script>
+import Instagram  from 'instagram-nodejs-without-api'
+export default {
+  data () {
+    return {
+    }
+  },
+  watch: {
+    
+  },
+  methods: {
+   
+  },
+  mounted ()  {
+    const instagram = new Instagram();    
+    instagram.getCsrfToken().then((csrf) =>
+    {
+      instagram.csrfToken = csrf;
+    }).then(() =>
+    {
+      return instagram.auth('carlos.henrique.reis.98', '¨6MyiiOsQZA').then(sessionId =>
+      {
+        instagram.sessionId = sessionId
+
+        return instagram.getUserDataByUsername('username-for-get').then((t) =>
+        {
+          return instagram.getUserFollowers(t.graphql.user.id).then((t) =>
+          {
+            console.log(t); // - instagram followers for user "username-for-get"
+          })
+        })
+
+      })
+    }).catch(console.error);
+  }
+}
+</script>
