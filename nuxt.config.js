@@ -29,7 +29,7 @@ export default {
 
   script: [
     { src: '/d3.js' },
-    { src: '/tesseract.js.js'}
+    { src: '/figlet.js'}
   ],
 
   // Global CSS (https://go.nuxtjs.dev/config-css)

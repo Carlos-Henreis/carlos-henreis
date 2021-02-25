@@ -101,20 +101,8 @@
 
                       <v-card-actions>
                         <v-spacer></v-spacer>
-                        <v-tooltip bottom>
-      <template v-slot:activator="{ on, attrs }">
-        <v-icon
-          color="primary"
-          dark
-          v-bind="attrs"
-          v-on="on"
-        >
-          mdi-home
-        </v-icon>
-      </template>
-      <span slot="badge">{{card.node.edge_media_to_caption.edges[0].node.text.split('#').length-2 < 0 ? 0 : card.node.edge_media_to_caption.edges[0].node.text.split('#').length-2}}</span>
-    </v-tooltip>
-                        <v-tooltip bottom>
+
+
                             <v-badge
                               left class="pr-3"
                               overlap
@@ -128,8 +116,7 @@
                                 mdi-pound-box-outline
                               </v-icon>
                             </v-badge>
-                            <span v-for="tag in card.node.edge_media_to_caption.edges[0].node.text.split('#').slice(1, -1)">#{{tag}}</br></span>
-                          </v-tooltip>
+                
                         <v-badge left class="pr-3" overlap>
                           <span slot="badge">{{card.node.edge_media_preview_like.count}}</span>
                           <v-icon
