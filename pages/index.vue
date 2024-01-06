@@ -33,9 +33,6 @@
       :folder-file="folderFile"
       :active="active"
     ></app-my-projects>
-    <app-hobbies
-      :active="active"
-    ></app-hobbies>
     <app-footer :folder-image="folderImage"></app-footer>
   </div>
 </template>
@@ -51,7 +48,6 @@ import AppAcademic from '~/components/AppAcademic.vue'
 import AppProfessionalExperience from '~/components/AppProfessionalExperience.vue'
 import AppInterests from '~/components/AppInterests.vue'
 import AppMyProjects from '~/components/AppMyProjects.vue'
-import AppHobbies from '~/components/AppHobbies.vue'
 import AppFooter from '~/components/AppFooter.vue'
 
 
@@ -65,7 +61,6 @@ export default {
     AppProfessionalExperience,
     AppInterests,
     AppMyProjects,
-    AppHobbies,
     AppFooter
   },
   data () {
@@ -75,7 +70,7 @@ export default {
       folderFile: 'https://carlos-henreis.github.io/files/',
       drawer: false,
       active: 0,
-      list: ['aboutMe', 'academic', 'professionalExperience', 'interests', 'projects', 'hobbies'],
+      list: ['aboutMe', 'academic', 'professionalExperience', 'interests', 'projects'],
       currentOffset: 0
     }
   },
